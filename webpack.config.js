@@ -27,9 +27,9 @@ const config = {
       test: /\.html/,
       loader: 'file?name=[name].[ext]'
     }, {
-      test: /\.css$/,
+      test: /\.scss$/,
                                 // or ?sourceMap&modules&importLoaders=1!postcss-loader
-      loader: DEV ? 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader' : ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader')
+      loader: DEV ? 'style!css!sass' : ExtractTextPlugin.extract('style', 'css!sass')
       // 'style-loader!css-loader?modules&importLoaders=1!postcss-loader'
     },
     { test: /\.json/, loader: 'json'},

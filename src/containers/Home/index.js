@@ -1,20 +1,33 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import CssModules from 'react-css-modules';
-
-import styles from './styles.css';
+import {routeActions} from 'react-router-redux';
 
 class Home extends Component {
-
+  
   render() {
-    const {auth: {username}} = this.props;
-
+    const {dispatch} = this.props;
     return (
-      <div>
-        <div styleName={'container'}>
-          <h1> Hi {username} </h1>
-        </div>
-      </div>
+       <ul className="device-list clearfix">
+      <li className="device-item card two-col">
+        <img className="device-img" src=""/>
+        <h4 className="device-name"><a onClick={() => dispatch(routeActions.push('/device'))}>Box one</a></h4>
+      </li>
+
+      <li className="device-item card two-col">
+        <img className="device-img" src=""/>
+        <h4 className="device-name"><a href="device-view.html">Box two</a></h4>
+      </li>
+
+      <li className="device-item card two-col">
+        <img className="device-img" src=""/>
+        <h4 className="device-name"><a href="device-view.html">Box three</a></h4>
+      </li>
+
+      <li className="device-item card two-col">
+        <img className="device-img" src=""/>
+        <h4 className="device-name"><a href="device-view.html">Box four</a></h4>
+      </li>
+    </ul>
     );
   }
 }
@@ -30,4 +43,6 @@ const mapStateToProps = ({auth}) => ({
   auth
 });
 
-export default connect(mapStateToProps)(CssModules(Home, styles));
+const mapDispatchToProps = (dispatch) => ({dispatch});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

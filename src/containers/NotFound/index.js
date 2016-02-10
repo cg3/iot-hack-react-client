@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-import styles from './styles.css';
-
 class NotFound extends Component {
 
   render() {

@@ -1,36 +1,18 @@
-import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-
-import * as actionCreators from '../../actions/auth';
+import React, {Component} from 'react';
+import {routeActions} from 'react-router-redux';
 
 class MainLayout extends Component {
   render() {
-    const {auth: {username}, actions: {logout}} = this.props;
     return (<div>
-      <a href="#" onClick={() => logout()}> Logout? ({username}) </a>
-      <div>
-        {this.props.children}
-      </div>
+        <header className="app-header">
+          <h1 className="branding"><a href="index.html">IOT GO</a></h1>
+        </header>
+        <div className="main-container">
+          {this.props.children}
+        </div>
     </div>);
   }
 }
 
-MainLayout.propTypes = {
-  children: PropTypes.node,
-  auth: PropTypes.shape({
-    username: PropTypes.string
-  }),
-  actions: PropTypes.shape({
-    logout: PropTypes.func.isRequired
-  })
-};
 
-
-const mapStateToProps = ({auth}) => ({auth});
-
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actionCreators, dispatch)
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainLayout);
+export default MainLayout;
