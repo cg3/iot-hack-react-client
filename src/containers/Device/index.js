@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {socket} from '../socket';
+import LineGraph from '../../components/LineChart';
+
 class Home extends Component {
 
   constructor(props) {
@@ -49,7 +51,7 @@ class Home extends Component {
               <label>LUX</label>
               <span className="1-light">{light}</span>
             </div>
-            <div className="sensor-readout-graph"></div>
+            <div className="sensor-readout-graph"><LineGraph/></div>
           </div>
         </li>
 
