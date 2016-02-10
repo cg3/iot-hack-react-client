@@ -9,21 +9,9 @@ export default class MyComponent extends Component {
   }
 
   render() {
-    const lineData = [
-      {
-        name: "series1",
-        values: [ { x: 0, y: 20 }, { x: 24, y: 10 } ],
-        strokeWidth: 3,
-        strokeDashArray: "5,5",
-      },
-      {
-        name: "series2",
-        values: [ { x: 70, y: 82 }, { x: 76, y: 82 } ]
-      }
-    ];
-    return (
-      <LineChart
-        legend={true}
+    const {lineData} = this.props;
+
+    const graph = lineData.length ? <LineChart
         data={lineData}
         width='100%'
         height={400}
@@ -33,10 +21,15 @@ export default class MyComponent extends Component {
           width: 500,
           height: 400
         }}
-        title="Line Chart"
-        yAxisLabel="Altitude"
+        title="Lux Chart"
+        yAxisLabel="Lux"
         xAxisLabel="Elapsed Time (sec)"
-        gridHorizontal={true}/>
-    );
+        gridHorizontal={true}/> : <span> {'No Data'} </span>;
+
+    return graph;
   }
 }
+
+MyComponent.defaultProps = {
+  lineData: []
+};

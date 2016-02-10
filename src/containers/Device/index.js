@@ -3,6 +3,16 @@ import { connect } from 'react-redux';
 import {socket} from '../socket';
 import LineGraph from '../../components/LineChart';
 
+const lineData = [
+{
+  values: [ { x: 0, y: 20 }, { x: 24, y: 10 } ],
+  strokeWidth: 3,
+  strokeDashArray: "5,5",
+},
+{
+  values: [ { x: 70, y: 60 }, { x: 76, y: 60 } ]
+}
+];
 class Home extends Component {
 
   constructor(props) {
@@ -51,7 +61,7 @@ class Home extends Component {
               <label>LUX</label>
               <span className="1-light">{light}</span>
             </div>
-            <div className="sensor-readout-graph"><LineGraph/></div>
+            <div className="sensor-readout-graph light-graph"><LineGraph lineData={lineData}/></div>
           </div>
         </li>
 
