@@ -11,9 +11,18 @@ export default class MyComponent extends Component {
   render() {
     const {lineData} = this.props;
 
+    const line = [
+      {
+        name: this.props.name || "series1",
+        values: lineData,
+        strokeWidth: 3,
+        strokeDashArray: "5,5",
+      }
+    ];
+
     const graph = lineData.length ? <LineChart
-        data={lineData}
-        width='100%'
+        data={line}
+        width={'100%'}
         height={400}
         viewBoxObject={{
           x: 0,

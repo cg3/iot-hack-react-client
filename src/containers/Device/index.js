@@ -2,17 +2,19 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import {socket} from '../socket';
 import LineGraph from '../../components/LineChart';
+import {bindActionCreators} from 'redux';
+import * as actionCreators from '../../actions/charts';
 
-const lineData = [
-{
-  values: [ { x: 0, y: 20 }, { x: 24, y: 10 } ],
-  strokeWidth: 3,
-  strokeDashArray: "5,5",
-},
-{
-  values: [ { x: 70, y: 60 }, { x: 76, y: 60 } ]
-}
-];
+// const lineData = [
+// {
+//   values: [ { x: 0, y: 20 }, { x: 24, y: 10 } ],
+//   strokeWidth: 3,
+//   strokeDashArray: "5,5",
+// },
+// {
+//   values: [ { x: 70, y: 60 }, { x: 76, y: 60 } ]
+// }
+// ];
 class Home extends Component {
 
   constructor(props) {
@@ -28,7 +30,8 @@ class Home extends Component {
 
   componentDidMount() {
     this.socket = socket.on('data', (data) => {
-      this.setState(data);
+      if (!data) return;
+      this.props.actions.chartDataSuccess(data);
     });
   }
 
@@ -37,7 +40,8 @@ class Home extends Component {
   }
 
   render() {
-    const {light, sound, temperature, accelerometer, vibration} = this.state;
+    const {sound, temperature, accelerometer, vibration} = this.state;
+    const {charts: {light, lightValue}} = this.props;
 
     return (
         <div className="device-view-container">
@@ -59,9 +63,9 @@ class Home extends Component {
           <div className="sensor-readout clearfix">
             <div className="sensor-value-container">
               <label>LUX</label>
-              <span className="1-light">{light}</span>
+              <span className="1-light">{lightValue}</span>
             </div>
-            <div className="sensor-readout-graph light-graph"><LineGraph lineData={lineData}/></div>
+            <div className="sensor-readout-graph light-graph"><LineGraph lineData={light}/></div>
           </div>
         </li>
 
@@ -123,8 +127,12 @@ Home.propTypes = {
   })
 };
 
-const mapStateToProps = ({auth}) => ({
-  auth
+const mapStateToProps = ({charts}) => ({
+  charts
 });
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(actionCreators, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

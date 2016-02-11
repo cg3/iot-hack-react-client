@@ -2,12 +2,10 @@ import {combineReducers} from 'redux';
 import {routeReducer} from 'react-router-redux';
 import {reducer as formReducer} from 'redux-form';
 
-import counter from './counter';
-import auth from './auth';
+import charts from './charts';
 
 export default combineReducers({
-  auth,
-  counter,
+  charts,
   routing: routeReducer,
   form: formReducer
 });
