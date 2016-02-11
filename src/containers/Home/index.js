@@ -3,28 +3,27 @@ import { connect } from 'react-redux';
 import {routeActions} from 'react-router-redux';
 
 class Home extends Component {
-  
+
   render() {
     const {dispatch} = this.props;
     return (
        <ul className="device-list clearfix">
       <li className="device-item card two-col">
-        <img className="device-img" src=""/>
+        <img className="device-img" src={require('../../img/iot-go-peach.png')}/>
         <h4 className="device-name"><a onClick={() => dispatch(routeActions.push('/device'))}>Box one</a></h4>
       </li>
 
       <li className="device-item card two-col">
-        <img className="device-img" src=""/>
+        <img className="device-img" src={require('../../img/iot-go-red.png')}/>
         <h4 className="device-name"><a href="device-view.html">Box two</a></h4>
       </li>
 
       <li className="device-item card two-col">
-        <img className="device-img" src=""/>
+        <img className="device-img" src={require('../../img/iot-go-purple.png')}/>
         <h4 className="device-name"><a href="device-view.html">Box three</a></h4>
       </li>
-
       <li className="device-item card two-col">
-        <img className="device-img" src=""/>
+        <img className="device-img" src={require('../../img/iot-go-pink.png')}/>
         <h4 className="device-name"><a href="device-view.html">Box four</a></h4>
       </li>
     </ul>
