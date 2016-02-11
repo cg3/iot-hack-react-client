@@ -9,12 +9,16 @@ const initialState = {
   temperatureValue: 0,
   vibration: [],
   vibrationValue: 0,
-  accelerometerValue: {x: 0, y: 0, z: 0}
+  accelerometerValue: {x: 0, y: 0, z: 0},
+  accelerometer: {
+    x: [],
+    y: [],
+    z: []
+  }
 };
 
 export default createReducer(initialState, {
   ['CHART_SUCCESS']: (state, payload) => {
-
     return Object.assign({}, state, {
       light: [
         ...state.light.slice(-25), {x: new Date().getTime(), y: payload.light}
@@ -32,7 +36,12 @@ export default createReducer(initialState, {
         ...state.vibration.slice(-25), {x: new Date().getTime(), y: payload.vibration}
       ],
       vibrationValue: payload.vibration,
-      accelerometerValue: payload.accelerometer
+      accelerometerValue: payload.accelerometer,
+      accelerometer: {
+        x: [payload.accelerometer.x],
+        y: [payload.accelerometer.y],
+        z: [payload.accelerometer.z]
+      }
     });
   }
 });

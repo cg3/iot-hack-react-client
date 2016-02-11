@@ -5,6 +5,7 @@ import {socket} from '../socket';
 import LineGraph from '../../components/LineChart';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../../actions/charts';
+import ThreeDScatter from '../../components/ThreeDScatter';
 
 class Home extends Component {
 
@@ -31,7 +32,7 @@ class Home extends Component {
   }
 
   render() {
-    const {dispatch, charts: {light, lightValue, sound, soundValue, temperature, temperatureValue, vibration, vibrationValue, accelerometerValue}} = this.props;
+    const {dispatch, charts: {light, lightValue, sound, soundValue, temperature, temperatureValue, vibration, vibrationValue, accelerometerValue, accelerometer}} = this.props;
 
     return (
         <div className="device-view-container">
@@ -101,7 +102,8 @@ class Home extends Component {
               <span className="1-accelerometer y-value">{accelerometerValue.y}</span>
               <span className="1-accelerometer z-value">{accelerometerValue.z}</span>
             </div>
-            <div className="sensor-readout-graph"></div>
+            <ThreeDScatter accelerometer={accelerometer}/>
+            <div className="sensor-readout-graph light-graph" id="plot"></div>
           </div>
         </li>
       </ul>
