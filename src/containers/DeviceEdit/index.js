@@ -4,7 +4,7 @@ import {socket} from '../socket';
 import {routeActions} from 'react-router-redux';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../../actions/charts';
-
+import ToggleSwitch from '../../components/ToggleSwitch';
 class Home extends Component {
 
   render() {
@@ -25,27 +25,27 @@ class Home extends Component {
       <ul className="sensor-list">
         <li className="sensor-item card clearfix">
           <h4 className="sensor-name">Light sensor</h4>
-          <span onclick="toggleSwitch(this)" className="toggle inactive"></span>
+          <ToggleSwitch/>
         </li>
 
         <li className="sensor-item card clearfix">
           <h4 className="sensor-name">Sound sensor</h4>
-          <span onclick="toggleSwitch(this)" className="toggle inactive"></span>
+          <ToggleSwitch/>
         </li>
 
         <li className="sensor-item card clearfix">
           <h4 className="sensor-name">Temperature sensor</h4>
-          <span onclick="toggleSwitch(this)" className="toggle inactive"></span>
+          <ToggleSwitch/>
         </li>
 
         <li className="sensor-item card clearfix">
           <h4 className="sensor-name">Vibration sensor</h4>
-          <span onclick="toggleSwitch(this)" className="toggle inactive"></span>
+          <ToggleSwitch/>
         </li>
 
         <li className="sensor-item card clearfix">
           <h4 className="sensor-name">Accelerometer</h4>
-          <span onclick="toggleSwitch(this)" className="toggle inactive"></span>
+          <ToggleSwitch/>
         </li>
       </ul>
 
