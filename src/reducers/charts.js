@@ -17,19 +17,19 @@ export default createReducer(initialState, {
 
     return Object.assign({}, state, {
       light: [
-        ...state.light.slice(-100), {x: new Date().getTime(), y: payload.light}
+        ...state.light.slice(-25), {x: new Date().getTime(), y: payload.light}
       ],
       lightValue: payload.light,
       sound: [
-        ...state.sound.slice(-100), {x: new Date().getTime(), y: payload.sound}
+        ...state.sound.slice(-25), {x: new Date().getTime(), y: payload.sound}
       ],
       soundValue: payload.sound,
       temperature: [
-        ...state.temperature.slice(-100), {x: new Date().getTime(), y: payload.temperature}
+        ...state.temperature.slice(-25), {x: new Date().getTime(), y: payload.temperature}
       ],
       temperatureValue: payload.temperature,
       vibration: [
-        ...state.vibration.slice(-100), {x: new Date().getTime(), y: payload.vibration}
+        ...state.vibration.slice(-25), {x: new Date().getTime(), y: payload.vibration}
       ],
       vibrationValue: payload.vibration,
       accelerometerValue: payload.accelerometer
