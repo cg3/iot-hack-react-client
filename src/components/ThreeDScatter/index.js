@@ -20,7 +20,19 @@ const layout = {margin: {
     l: 0,
     r: 0,
     b: 0,
-    t: 0
+    t: 0,
+    xaxis: {
+      autorange: false,
+      range: [-1.5, 1.5]
+    },
+    yaxis: {
+      autorange: false,
+      range: [-1.5, 1.5]
+    },
+    zaxis: {
+      autorange: false,
+      range: [-1.5, 1.5]
+    }
   }};
 
 export default class Scatter extends Component {
@@ -52,8 +64,8 @@ export default class Scatter extends Component {
     trace1.x = accelerometer.x;
     trace1.z = accelerometer.z;
     trace1.y = accelerometer.y;
-    
-    Plotly.newPlot('plot', [trace1], layout);
+
+    Plotly.redraw('plot', [trace1], layout);
   }
 }
 
