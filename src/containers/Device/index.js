@@ -6,16 +6,6 @@ import LineGraph from '../../components/LineChart';
 import {bindActionCreators} from 'redux';
 import * as actionCreators from '../../actions/charts';
 
-// const lineData = [
-// {
-//   values: [ { x: 0, y: 20 }, { x: 24, y: 10 } ],
-//   strokeWidth: 3,
-//   strokeDashArray: "5,5",
-// },
-// {
-//   values: [ { x: 70, y: 60 }, { x: 76, y: 60 } ]
-// }
-// ];
 class Home extends Component {
 
   constructor(props) {
@@ -73,7 +63,7 @@ class Home extends Component {
           <label>Sound sensor</label>
           <div className="sensor-readout clearfix">
             <div className="sensor-value-container">
-              <label>DB</label>
+              <label></label>
               <span className="1-sound">{soundValue}</span>
             </div>
             <div className="sensor-readout-graph light-graph"><LineGraph lineData={sound} name="Sound"/></div>
