@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import {routeActions} from 'react-router-redux';
 import {socket} from '../socket';
 import LineGraph from '../../components/LineChart';
 import {bindActionCreators} from 'redux';
@@ -40,7 +41,7 @@ class Home extends Component {
   }
 
   render() {
-    const {charts: {light, lightValue, sound, soundValue, temperature, temperatureValue, vibration, vibrationValue, accelerometerValue}} = this.props;
+    const {dispatch, charts: {light, lightValue, sound, soundValue, temperature, temperatureValue, vibration, vibrationValue, accelerometerValue}} = this.props;
 
     return (
         <div className="device-view-container">
@@ -54,7 +55,7 @@ class Home extends Component {
         <h2>IOT Expo fire escape</h2>
       </div>
 
-      <a href="device-edit.html" className="btn btn-full-width">Edit Device settings</a>
+      <a onClick={() => dispatch(routeActions.push('/edit'))} className="btn btn-full-width">Edit Device settings</a>
 
       <ul className="sensor-list">
         <li className="sensor-item card">
@@ -131,7 +132,8 @@ const mapStateToProps = ({charts}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actionCreators, dispatch)
+  actions: bindActionCreators(actionCreators, dispatch),
+  dispatch
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

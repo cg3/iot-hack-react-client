@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, hashHistory} from 'react-router';
 
 import MainLayout from './MainLayout';
 import Device from './Device';
+import DeviceEdit from './DeviceEdit';
 import Home from './Home';
 import NotFound from './NotFound';
 
@@ -13,6 +14,7 @@ class Root extends Component {
         <Route path={'/'} component={MainLayout}>
           <IndexRoute component={Home} />
           <Route path={'/device'} component={Device}/>
+          <Route path={'/edit'} component={DeviceEdit}/>
           <Route path={'*'} component={NotFound}/>
         </Route>
       </Router>
