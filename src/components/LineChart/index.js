@@ -13,7 +13,6 @@ export default class MyComponent extends Component {
 
     const line = [
       {
-        name: this.props.name || "series1",
         values: lineData,
         strokeWidth: 3,
         strokeDashArray: "5,5",
@@ -30,9 +29,7 @@ export default class MyComponent extends Component {
           width: 500,
           height: 400
         }}
-        title="Lux Chart"
-        yAxisLabel="Lux"
-        xAxisLabel="Elapsed Time (sec)"
+        title={this.props.name}
         gridHorizontal={true}/> : <span> {'No Data'} </span>;
 
     return graph;

@@ -40,8 +40,7 @@ class Home extends Component {
   }
 
   render() {
-    const {sound, temperature, accelerometer, vibration} = this.state;
-    const {charts: {light, lightValue}} = this.props;
+    const {charts: {light, lightValue, sound, soundValue, temperature, temperatureValue, vibration, vibrationValue, accelerometerValue}} = this.props;
 
     return (
         <div className="device-view-container">
@@ -65,7 +64,7 @@ class Home extends Component {
               <label>LUX</label>
               <span className="1-light">{lightValue}</span>
             </div>
-            <div className="sensor-readout-graph light-graph"><LineGraph lineData={light}/></div>
+            <div className="sensor-readout-graph light-graph"><LineGraph lineData={light} name="LUX"/></div>
           </div>
         </li>
 
@@ -74,9 +73,9 @@ class Home extends Component {
           <div className="sensor-readout clearfix">
             <div className="sensor-value-container">
               <label>DB</label>
-              <span className="1-sound">{sound}</span>
+              <span className="1-sound">{soundValue}</span>
             </div>
-            <div className="sensor-readout-graph"></div>
+            <div className="sensor-readout-graph light-graph"><LineGraph lineData={sound} name="Sound"/></div>
           </div>
         </li>
 
@@ -85,9 +84,9 @@ class Home extends Component {
           <div className="sensor-readout clearfix">
             <div className="sensor-value-container">
               <label>&deg; C</label>
-              <span className="1-temperature">{temperature}</span>
+              <span className="1-temperature">{temperatureValue}</span>
             </div>
-            <div className="sensor-readout-graph"></div>
+            <div className="sensor-readout-graph light-graph"><LineGraph lineData={temperature} name="Temperature"/></div>
           </div>
         </li>
 
@@ -96,9 +95,9 @@ class Home extends Component {
           <div className="sensor-readout clearfix">
             <div className="sensor-value-container">
               <label>G</label>
-              <span className="1-vibrate">{vibration}</span>
+              <span className="1-vibrate">{vibrationValue}</span>
             </div>
-            <div className="sensor-readout-graph"></div>
+            <div className="sensor-readout-graph light-graph"><LineGraph lineData={vibration} name="Vibration"/></div>
           </div>
         </li>
 
@@ -107,9 +106,9 @@ class Home extends Component {
           <div className="sensor-readout clearfix">
             <div className="sensor-value-container">
               <label>XYZ</label>
-              <span className="1-accelerometer x-value">{accelerometer.x}</span>
-              <span className="1-accelerometer y-value">{accelerometer.y}</span>
-              <span className="1-accelerometer z-value">{accelerometer.z}</span>
+              <span className="1-accelerometer x-value">{accelerometerValue.x}</span>
+              <span className="1-accelerometer y-value">{accelerometerValue.y}</span>
+              <span className="1-accelerometer z-value">{accelerometerValue.z}</span>
             </div>
             <div className="sensor-readout-graph"></div>
           </div>
