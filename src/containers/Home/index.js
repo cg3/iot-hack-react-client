@@ -15,16 +15,16 @@ class Home extends Component {
 
       <li className="device-item card two-col">
         <img className="device-img" src={require('../../img/iot-go-red.png')}/>
-        <h4 className="device-name"><a href="device-view.html">Box two</a></h4>
+        <h4 className="device-name"><a onClick={() => dispatch(routeActions.push('/device'))}>Box two</a></h4>
       </li>
 
       <li className="device-item card two-col">
         <img className="device-img" src={require('../../img/iot-go-purple.png')}/>
-        <h4 className="device-name"><a href="device-view.html">Box three</a></h4>
+        <h4 className="device-name"><a onClick={() => dispatch(routeActions.push('/device'))}>Box three</a></h4>
       </li>
       <li className="device-item card two-col">
         <img className="device-img" src={require('../../img/iot-go-pink.png')}/>
-        <h4 className="device-name"><a href="device-view.html">Box four</a></h4>
+        <h4 className="device-name"><a onClick={() => dispatch(routeActions.push('/device'))}>Box four</a></h4>
       </li>
     </ul>
     );
